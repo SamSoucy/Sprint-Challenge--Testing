@@ -19,4 +19,16 @@ server.get('/games', (req, res) => {
 	res.status(200).json(games);
 });
 
+server.post("/games", (req, res) => {
+    const { id, title, genre, releaseYear } = req.body;
+    if ((!id, (!title && !genre && !releaseYear) || id === games.id)) {
+        res.status(422).json({ err: "Add proper information" });
+    } else {
+        const newGame = { id, title, genre, releaseYear };
+        games = [...games, newGame];
+        res.status(201).json({ message:"new game added" });
+        games.id++;
+    }
+})
+
 module.exports = server;

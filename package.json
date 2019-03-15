@@ -4,6 +4,7 @@
 	"description": "Testing Sprint Challenge",
 	"main": "index.js",
 	"scripts": {
+		"server": "nodemon index.js",
 		"test": "jest --watch --verbose",
 		"start": "nodemon index.js"
 	},
@@ -19,7 +20,8 @@
 	},
 	"homepage": "https://github.com/LambdaSchool/Sprint-Challenge--Testing#readme",
 	"dependencies": {
-		"express": "^4.16.4"
+		"express": "^4.16.4",
+		"nodemon": "^1.18.10"
 	},
 	"devDependencies": {
 		"jest": "^23.6.0",
