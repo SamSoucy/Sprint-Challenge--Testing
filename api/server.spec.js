@@ -18,4 +18,24 @@ describe("testing the API", () => {
             expect(res.body.length).toBe(1);
         });
     });
+
+    describe("post", () => {
+        it("should return status code 422 if information is incorrectly sent", async () => {
+            const game = { game: 'Super mario Brothers' };
+            const res = await request(server).post("/games").send(game);
+            expect(res.status).toBe(422);
+        });
+
+        it("should return status code 422 if data is not complete ", async () => {
+            const game = { title: 'Pacman' };
+            const res = await request(server).post("/games").send(game);
+            expect(res.status).toBe(422);
+        });
+
+        it("should return status code 201 if a game is properly added", async () => {
+            const game = { id: 1, title: 'Pacman', genre: 'Arcade', releaseYear: 1980 };
+            const res = await request(server).post("/games").send(game);
+            expect(res.status).toBe(201);
+        });
+    })
 })
