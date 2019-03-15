@@ -13,9 +13,9 @@ describe("testing the API", () => {
             expect(res.status).toBe(200);
         });
 
-        it("should return the releaseYear of the game", async () => {
+        it("should return the total number of games in the db", async () => {
             const res = await request(server).get("/games");
-            expect(res.body).toBe("releaseYear")
+            expect(res.body.length).toBe(1);
         });
-    })
+    });
 })
