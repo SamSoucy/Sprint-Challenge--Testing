@@ -3,7 +3,7 @@ const request = require("supertest")
 
 describe("testing the API", () => {
     describe("return games", () => {
-        it("should return a list of games", async () => {
+        it("should return a list of games even if there are no games ", async () => {
             const res = await request(server).get("/games");
             expect(Array.isArray(res.body)).toBeTruthy();
         });

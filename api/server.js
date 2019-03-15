@@ -10,15 +10,20 @@ let games = [
         releaseYear: 1980
     }
 ];
+//**************Testing the server******************/
 
 server.get("/", (req, res) => {
     res.status(200).json({ api: "Server is ready" });
 });
 
+//*************List of games***************/
+
 server.get('/games', (req, res) => {
 	res.status(200).json(games);
 });
 
+
+//*************Add a game******************/
 server.post("/games", (req, res) => {
     const { id, title, genre, releaseYear } = req.body;
     if ((!id, (!title && !genre && !releaseYear) || id === games.id)) {
